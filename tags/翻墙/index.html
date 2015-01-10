@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>翻墙 | D.design</title>
+  <meta name="author" content="ddesign">
+  
+  <meta name="description" content="记录工作的点点滴滴">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="D.design"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="D.design" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">D.design</a></h1>
+  <h2><a href="/">爱自己 爱工作 爱生活</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">翻墙</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-01-09T10:27:06.000Z"><a href="/mac/fuckgfw/">2015/01/9</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/mac/fuckgfw/">MAC翻墙方式</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>在中国从事软件行业，为了能正常的工作与学习，第一个就是需要学习翻墙，当你学会翻墙，就会发现，墙外的世界是多么的美好。</p>
+<h2 id="使用SSH翻墙">使用SSH翻墙</h2>
+<p>如果自己在国外有VPS，也可以自己做SSH，如果没有VPS，单独为翻墙买个就不划算了，直接找专门提供VPN的网站购买，大约100元左右一年。</p>
+<p>使用iSSH软件进行翻墙,SSH的配置非常简单，一般都使用Socks Proxy模式进行代理，一般会把8080端口修改成7070。配置完后，本地的Socks代理地址为：127.0.0.1:7070</p>
+<p>ISSH下载地址：<a href="http://sourceforge.jp/projects/sfnet_issh/" target="_blank" rel="external">http://sourceforge.jp/projects/sfnet_issh/</a><br><img src="../../static/images/mac/issh.png" alt="issh"></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">装逼命令：ssh -<span class="constant">D</span> <span class="number">7070</span> username<span class="variable">@ip</span><span class="symbol">:port</span></div></pre></td></tr></table></figure>
+
+<h2 id="SSH全局代理">SSH全局代理</h2>
+<p>开发时经常会碰到终端命令和软件被墙，而MAC上默认是不能使用SSH设置全局代理的，还好有一个非常好用的全局代理的软件Proxifier for mac，唯一的缺点是收费软件。<br><img src="../../static/images/mac/proxifier.png" alt="proxifier"></p>
+<p>设置方法：</p>
+<p>Proxies -&gt; Add(填写address:127.0.0.1，Port:7070，选择Socks version 5) -&gt; OK</p>
+<h2 id="浏览器自动代理">浏览器自动代理</h2>
+<p>我比较喜欢使用<a href="http://www.google.cn/intl/zh-CN/chrome/browser/" target="_blank" rel="external">Google Chrome</a>，一般需要使用全局代理后，才能下载及更新配置。</p>
+<p>浏览器自动代理需要使用SwitchyOmega(switchysharp)，配置非常简单，每一次配置还有引导功能。</p>
+<p>自动代理规则: AutoProxy</p>
+<p>规则列表网址：<a href="https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt" target="_blank" rel="external">https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:ddesign84.github.io">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/mac/">mac</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/brew/">brew</a><small>1</small></li>
+  
+    <li><a href="/tags/mac/">mac</a><small>2</small></li>
+  
+    <li><a href="/tags/翻墙/">翻墙</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 ddesign
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MAC OSX包管理工具 Homebrew | D.design</title>
+  <meta name="author" content="ddesign">
+  
+  <meta name="description" content="记录工作的点点滴滴">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="MAC OSX包管理工具 Homebrew"/>
+  <meta property="og:site_name" content="D.design"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="D.design" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">D.design</a></h1>
+  <h2><a href="/">爱自己 爱工作 爱生活</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-01-08T11:54:03.000Z"><a href="/mac/homebrew/">2015/01/8</a></time>
+      
+      
+  
+    <h1 class="title">MAC OSX包管理工具 Homebrew</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="简介">简介</h2>
+<p>Brew是OSX的包管理工具，可以非常方便的配置开发环境</p>
+<p>官网地址：<a href="http://brew.sh/" target="_blank" rel="external">http://brew.sh/</a></p>
+<h2 id="安装">安装</h2>
+<h3 id="安装brew">安装brew</h3>
+<p>OSX默认已经安装RUBY， 其他系统请先安装ruby</p>
+<p>执行安装命令</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
+
+<h3 id="安装services插件">安装services插件</h3>
+<p>执行安装命令</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">brew</span> tap homebrew/boneyard</div></pre></td></tr></table></figure>
+
+<p><strong>services相关命令</strong></p>
+<p>brew services list 显示<strong>services</strong>所有服务</p>
+<p>brew services start serviceName 运行<strong>serviceName</strong>服务</p>
+<p>brew services stop serviceName 停止<strong>serviceName</strong>服务</p>
+<p>brew services restart serviceName 重启<strong>serviceName</strong>服务</p>
+<h2 id="brew的使用">brew的使用</h2>
+<h3 id="基本命令">基本命令</h3>
+<p>homebrew的基本命令:</p>
+<p><strong>更新brew</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew <span class="keyword">update</span></div></pre></td></tr></table></figure>
+
+<p><strong>查找软件包</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew <span class="built_in">search</span> softName</div></pre></td></tr></table></figure>
+
+<p><strong>安装软件包</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew <span class="operator"><span class="keyword">install</span> softName</span></div></pre></td></tr></table></figure>
+
+<p><strong>列出已安装的软件包</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew <span class="keyword">list</span></div></pre></td></tr></table></figure>
+
+<p><strong>列出有新版本的软件包</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">brew</span> outdated</div></pre></td></tr></table></figure>
+
+<p><strong>升级软件包</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="title">brew</span> upgrade</div><div class="line">brew upgrade softName</div></pre></td></tr></table></figure>
+
+<p><strong>删除软件包</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew <span class="built_in">remove</span> softName</div></pre></td></tr></table></figure>
+
+<p><strong>查看软件包信息</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">brew</span> <span class="built_in">info</span> softName</div></pre></td></tr></table></figure>
+
+<p><strong>查看软件包依赖</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">brew</span> deps softName</div></pre></td></tr></table></figure>
+
+<h3 id="安装mysql">安装mysql</h3>
+<p>安装mysql命令</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew <span class="operator"><span class="keyword">install</span> mysql</span></div></pre></td></tr></table></figure>
+
+<p>启用mysql命令</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew services <span class="operator"><span class="keyword">start</span> mysql</span></div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/mac/">mac</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/mac/">mac</a>, <a href="/tags/brew/">brew</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://ddesign84.github.io/mac/homebrew/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:ddesign84.github.io">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/mac/">mac</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/brew/">brew</a><small>1</small></li>
+  
+    <li><a href="/tags/mac/">mac</a><small>2</small></li>
+  
+    <li><a href="/tags/翻墙/">翻墙</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 ddesign
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

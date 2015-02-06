@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>归档：2015/1 | D.design</title>
+  <title>test | D.design</title>
   <meta name="author" content="ddesign">
   
   <meta name="description" content="记录工作的点点滴滴">
@@ -45,7 +45,7 @@
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">2015/1</h2>
+<h2 class="archive-title tag">test</h2>
 
 
   
@@ -109,141 +109,6 @@
 <p>Behavior Driven Development，行为驱动开发是一种敏捷软件开发的技术，它鼓励软件项目中的开发者、QA和非技术人员或商业参与者之间的协作。BDD最初是由Dan North在2003年命名，它包括验收测试和客户测试驱动等的极限编程的实践，作为对测试驱动开发的回应。在过去数年里，它得到了很大的发展。</p>
 <h3 id="Behave">Behave</h3>
 <h3 id="Lettuce">Lettuce</h3>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-01-09T10:27:06.000Z"><a href="/mac/fuckgfw/">2015/01/9</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/mac/fuckgfw/">MAC翻墙方式</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>在中国从事软件行业，为了能正常的工作与学习，第一个就是需要学习翻墙，当你学会翻墙，就会发现，墙外的世界是多么的美好。</p>
-<h2 id="使用SSH翻墙">使用SSH翻墙</h2>
-<p>如果自己在国外有VPS，也可以自己做SSH，如果没有VPS，单独为翻墙买个就不划算了，直接找专门提供VPN的网站购买，大约100元左右一年。</p>
-<p>使用iSSH软件进行翻墙,SSH的配置非常简单，一般都使用Socks Proxy模式进行代理，一般会把8080端口修改成7070。配置完后，本地的Socks代理地址为：127.0.0.1:7070</p>
-<p>ISSH下载地址：<a href="http://sourceforge.jp/projects/sfnet_issh/" target="_blank" rel="external">http://sourceforge.jp/projects/sfnet_issh/</a><br><img src="../../static/images/mac/issh.png" alt="issh"></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">装逼命令：ssh -<span class="constant">D</span> <span class="number">7070</span> username<span class="variable">@ip</span><span class="symbol">:port</span></div></pre></td></tr></table></figure>
-
-<h2 id="SSH全局代理">SSH全局代理</h2>
-<p>开发时经常会碰到终端命令和软件被墙，而MAC上默认是不能使用SSH设置全局代理的，还好有一个非常好用的全局代理的软件Proxifier for mac，唯一的缺点是收费软件。<br><img src="../../static/images/mac/proxifier.png" alt="proxifier"></p>
-<p>设置方法：</p>
-<p>Proxies -&gt; Add(填写address:127.0.0.1，Port:7070，选择Socks version 5) -&gt; OK</p>
-<h2 id="浏览器自动代理">浏览器自动代理</h2>
-<p>我比较喜欢使用<a href="http://www.google.cn/intl/zh-CN/chrome/browser/" target="_blank" rel="external">Google Chrome</a>，一般需要使用全局代理后，才能下载及更新配置。</p>
-<p>浏览器自动代理需要使用SwitchyOmega(switchysharp)，配置非常简单，每一次配置还有引导功能。</p>
-<p>自动代理规则: AutoProxy</p>
-<p>规则列表网址：<a href="https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt" target="_blank" rel="external">https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-01-08T11:54:03.000Z"><a href="/mac/homebrew/">2015/01/8</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/mac/homebrew/">MAC OSX包管理工具 Homebrew</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="简介">简介</h2>
-<p>Brew是OSX的包管理工具，可以非常方便的配置开发环境</p>
-<p>官网地址：<a href="http://brew.sh/" target="_blank" rel="external">http://brew.sh/</a></p>
-<h2 id="安装">安装</h2>
-<h3 id="安装brew">安装brew</h3>
-<p>OSX默认已经安装RUBY， 其他系统请先安装ruby</p>
-<p>执行安装命令</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
-
-<h3 id="安装services插件">安装services插件</h3>
-<p>执行安装命令</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">brew</span> tap homebrew/boneyard</div></pre></td></tr></table></figure>
-
-<p><strong>services相关命令</strong></p>
-<p>brew services list 显示<strong>services</strong>所有服务</p>
-<p>brew services start serviceName 运行<strong>serviceName</strong>服务</p>
-<p>brew services stop serviceName 停止<strong>serviceName</strong>服务</p>
-<p>brew services restart serviceName 重启<strong>serviceName</strong>服务</p>
-<h2 id="brew的使用">brew的使用</h2>
-<h3 id="基本命令">基本命令</h3>
-<p>homebrew的基本命令:</p>
-<p><strong>更新brew</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew <span class="keyword">update</span></div></pre></td></tr></table></figure>
-
-<p><strong>查找软件包</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew <span class="built_in">search</span> softName</div></pre></td></tr></table></figure>
-
-<p><strong>安装软件包</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew <span class="operator"><span class="keyword">install</span> softName</span></div></pre></td></tr></table></figure>
-
-<p><strong>列出已安装的软件包</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew <span class="keyword">list</span></div></pre></td></tr></table></figure>
-
-<p><strong>列出有新版本的软件包</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">brew</span> outdated</div></pre></td></tr></table></figure>
-
-<p><strong>升级软件包</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="title">brew</span> upgrade</div><div class="line">brew upgrade softName</div></pre></td></tr></table></figure>
-
-<p><strong>删除软件包</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew <span class="built_in">remove</span> softName</div></pre></td></tr></table></figure>
-
-<p><strong>查看软件包信息</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">brew</span> <span class="built_in">info</span> softName</div></pre></td></tr></table></figure>
-
-<p><strong>查看软件包依赖</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">brew</span> deps softName</div></pre></td></tr></table></figure>
-
-<h3 id="安装mysql">安装mysql</h3>
-<p>安装mysql命令</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew <span class="operator"><span class="keyword">install</span> mysql</span></div></pre></td></tr></table></figure>
-
-<p>启用mysql命令</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew services <span class="operator"><span class="keyword">start</span> mysql</span></div></pre></td></tr></table></figure>
-
 
       
     </div>

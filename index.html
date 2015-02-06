@@ -51,6 +51,82 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-01-30T15:49:14.000Z"><a href="/python/test/">2015/01/30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/python/test/">Django框架测试</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>工作很多年了，很少在项目里面写测试，一是开发时间不够，写程序和测试的时间是纯写程序的两倍左右；二是写出完美的测试代码需要花费很长的时间；三是一些复杂的业务逻辑并不是特别好写测试。最近花了一周的空闲时间来看Django的种类测试，并准备在自己的Django项目中应用，目标达到覆盖率100%（有人说覆盖重要的就行了，但是考虑python是动态语言，不运行到代码，是根本发现不了错误的，所以100%的覆盖率可以保证每次测试时，所有代码都有运行）</p>
+<h2 id="TTD（Test_Drive_Development）测试驱动开发">TTD（Test Drive Development）测试驱动开发</h2>
+<p>测试驱动开发是敏捷开发中的一项核心实践和技术，也是一种设计方法论。TDD的原理是在开发功能代码之前，先编写单元测试用例代码，测试代码确定需要编写什么产品代码。TDD虽是敏捷方法的核心实践，但不只适用于XP（Extreme Programming），同样可以适用于其他开发方法和过程。</p>
+<p>TDD的基本思路就是通过测试来推动整个开发的进行，但测试驱动开发并不只是单纯的测试工作，而是把需求分析，设计，质量控制量化的过程。</p>
+<p>TDD的重要目的不仅仅是测试软件，测试工作保证代码质量仅仅是其中一部分，而且是在开发过程中帮助客户和程序员去除模棱两可的需求。TDD首先考虑使用需求（对象、功能、过程、接口等），主要是编写测试用例框架对功能的过程和接口进行设计，而测试框架可以持续进行验证。</p>
+<h3 id="Coverage_代码覆盖率统计工具">Coverage 代码覆盖率统计工具</h3>
+<p>coverage是一个用来统计python代码覆盖率的工具，使用非常简单，同时还能生成html报表。</p>
+<p>官方网站：<a href="http://nedbatchelder.com/code/coverage/" target="_blank" rel="external">http://nedbatchelder.com/code/coverage/</a></p>
+<p>安装</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip <span class="operator"><span class="keyword">install</span> coverage</span></div></pre></td></tr></table></figure>
+
+<h3 id="Django_TTD">Django TTD</h3>
+<p>Django框架使用的是unittest来做测试，并对其做了封装TestCase，可以更方便的对Django项目进行测试。</p>
+<h4 id="测试数据的配置">测试数据的配置</h4>
+<p>django可以很方便的把开发数据库与测试数据库分离，每次测试的时候，都是新建数据库，并导入测试数据。</p>
+<p>测试数据库的配置 settings.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">DATABASES = {</div><div class="line">    <span class="string">'default'</span>: {</div><div class="line">        <span class="string">'NAME'</span>: <span class="string">'dev'</span>,</div><div class="line">        <span class="string">'HOST'</span>: <span class="string">'localhost'</span>,</div><div class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>,</div><div class="line">        <span class="string">'USER'</span>: <span class="string">'dev'</span>,</div><div class="line">        <span class="string">'PASSWORD'</span>: <span class="string">'dev'</span>,</div><div class="line">        <span class="string">'TEST_NAME'</span>: <span class="string">'dev_test'</span></div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h4 id="测试Models">测试Models</h4>
+<p>models 需要测试：</p>
+<ol>
+<li>Model 里的所有自定义方法</li>
+<li>Manager 里的所有自定义方法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># models.py</span></div><div class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BlogManager</span><span class="params">(models.Manager)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">approved</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.model.objects.filter(status=self.model.STATUS_APPROVED).all()</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">draft</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.model.objects.filter(status=self.model.STATUS_DRAFT).all()</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Blog</span><span class="params">(models.Model)</span>:</span></div><div class="line"></div><div class="line">    STATUS_APPROVED = <span class="number">0</span></div><div class="line">    STATUS_DRAFT = <span class="number">1</span></div><div class="line">    CHOICES_STATUS = (</div><div class="line">        (STATUS_APPROVED, <span class="string">'发布'</span>),</div><div class="line">        (STATUS_DRAFT, <span class="string">'草稿'</span>)</div><div class="line">    )</div><div class="line"></div><div class="line">    title = models.CharField(<span class="string">'标题'</span>, max_length=<span class="number">50</span>)</div><div class="line">    content = models.TextField(<span class="string">'内容'</span>)</div><div class="line">    status = models.SmallIntegerField(<span class="string">'状态'</span>, choices=CHOICES_STATUS)</div><div class="line">    </div><div class="line">    objects = BlogManager()</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_status</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">for</span> v, text <span class="keyword">in</span> CHOICES_STATUS:</div><div class="line">            <span class="keyword">if</span> v == self.status:</div><div class="line">                <span class="keyword">return</span> text</div><div class="line"></div><div class="line"><span class="comment"># test_models.py</span></div><div class="line"><span class="keyword">from</span> django.test <span class="keyword">import</span> TestCase</div><div class="line"><span class="keyword">from</span> models <span class="keyword">import</span> Blog</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BlogModelsTestCase</span><span class="params">(TestCase)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setUp</span><span class="params">(self)</span>:</span></div><div class="line">        self.blog_approved = Blog.objects.create(title=<span class="string">'title1'</span>, content=<span class="string">'content1'</span>, status=Blog.STATUS_APPROVED)</div><div class="line">        self.blog_draft = Blog.objects.create(title=<span class="string">'title2'</span>, content=<span class="string">'content2'</span>, status=Blog.STATUS_DRAFT)</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_blog</span><span class="params">(self)</span>:</span></div><div class="line">        self.assertEqual(self.blog_approved.get_status(), <span class="string">'发布'</span>)</div><div class="line">        self.assertEqual(self.blog_draft.get_status(), <span class="string">'草稿'</span>)</div><div class="line">        self.assertEqual(len(Blog.objects.approved()), <span class="number">1</span>)</div><div class="line">        self.assertEqual(len(Blog.objects.draft()), <span class="number">1</span>)</div></pre></td></tr></table></figure>
+
+<h4 id="测试Forms">测试Forms</h4>
+<p>forms 需要测试：</p>
+<ol>
+<li>自定义的初始化<strong>init</strong></li>
+<li>自定义的验证方法def clean_xxx</li>
+<li>自定义的保存方法def save</li>
+</ol>
+<h4 id="测试Views">测试Views</h4>
+<p>views 需要结合功能进行测试：</p>
+<ol>
+<li>一定要测GET，status_code = 200</li>
+<li>是否需要登录</li>
+<li>是否需要POST，POST数据后，需要如何处理</li>
+</ol>
+<h2 id="BDD（Behavior_Driven_Development）行为驱动开发">BDD（Behavior Driven Development）行为驱动开发</h2>
+<p>Behavior Driven Development，行为驱动开发是一种敏捷软件开发的技术，它鼓励软件项目中的开发者、QA和非技术人员或商业参与者之间的协作。BDD最初是由Dan North在2003年命名，它包括验收测试和客户测试驱动等的极限编程的实践，作为对测试驱动开发的回应。在过去数年里，它得到了很大的发展。</p>
+<h3 id="Behave">Behave</h3>
+<h3 id="Lettuce">Lettuce</h3>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-01-09T10:27:06.000Z"><a href="/mac/fuckgfw/">2015/01/9</a></time>
       
       
@@ -201,6 +277,8 @@
   
     <li><a href="/categories/mac/">mac</a><small>2</small></li>
   
+    <li><a href="/categories/python/">python</a><small>1</small></li>
+  
   </ul>
 </div>
 
@@ -210,9 +288,19 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
+    <li><a href="/tags/bdd/">bdd</a><small>1</small></li>
+  
     <li><a href="/tags/brew/">brew</a><small>1</small></li>
   
+    <li><a href="/tags/django/">django</a><small>1</small></li>
+  
     <li><a href="/tags/mac/">mac</a><small>2</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>1</small></li>
+  
+    <li><a href="/tags/tdd/">tdd</a><small>1</small></li>
+  
+    <li><a href="/tags/test/">test</a><small>1</small></li>
   
     <li><a href="/tags/翻墙/">翻墙</a><small>1</small></li>
   
@@ -232,6 +320,18 @@
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
+
+<script type="text/javascript">
+var disqus_shortname = 'ddesign84';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
 
 
 
